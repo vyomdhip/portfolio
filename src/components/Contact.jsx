@@ -111,14 +111,16 @@ export default function Contact() {
           <span className="text-xs uppercase tracking-[0.2em] text-white/90 font-bold">
             Reach Me
           </span>
-          <a
-            href={socialLinks.instagram || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#ff2a2a] text-xs font-bold uppercase tracking-wider transition-all duration-300"
-          >
-            DM on Instagram
-          </a>
+          {socialLinks.instagram && (
+            <a
+              href={socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#ff2a2a] text-xs font-bold uppercase tracking-wider transition-all duration-300"
+            >
+              DM on Instagram
+            </a>
+          )}
         </div>
 
         {/* Contact form */}
@@ -136,6 +138,7 @@ export default function Contact() {
                   name="first_name"
                   type="text"
                   placeholder="First Name *"
+                  aria-label="First Name"
                   required
                   className="w-full bg-transparent border-b border-white/40 pb-3 text-lg placeholder-white text-white focus:border-white focus:outline-none transition-colors"
                 />
@@ -146,6 +149,7 @@ export default function Contact() {
                   name="last_name"
                   type="text"
                   placeholder="Last Name"
+                  aria-label="Last Name"
                   className="w-full bg-transparent border-b border-white/40 pb-3 text-lg placeholder-white text-white focus:border-white focus:outline-none transition-colors"
                 />
               </div>
@@ -155,6 +159,7 @@ export default function Contact() {
                   name="user_email"
                   type="email"
                   placeholder="Email Address *"
+                  aria-label="Email Address"
                   required
                   className="w-full bg-transparent border-b border-white/40 pb-3 text-lg placeholder-white text-white focus:border-white focus:outline-none transition-colors"
                 />
@@ -167,6 +172,7 @@ export default function Contact() {
                 id="message"
                 name="message"
                 placeholder="Your Message *"
+                aria-label="Your Message"
                 required
                 className="w-full bg-transparent border-b border-white/40 pb-3 text-lg placeholder-white text-white focus:border-white focus:outline-none resize-none min-h-[120px] h-full transition-colors"
               />
