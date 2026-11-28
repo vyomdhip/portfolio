@@ -39,7 +39,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         {/* ── Left — ID badge on a lanyard (flip card) ── */}
         <motion.div
-          className="md:w-[350px] shrink-0 relative flex flex-col items-center pt-32"
+          className="w-full md:w-[350px] shrink-0 relative flex flex-col items-center pt-32"
           initial={{ y: -300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.15 }}
@@ -51,17 +51,18 @@ export default function About() {
           }}
         >
           {/* Lanyard string */}
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-3 h-40 bg-black rounded-b-sm" />
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-3 h-60 bg-black rounded-b-sm" />
 
           {/* Clip */}
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 w-10 h-5 bg-gray-400 rounded-sm z-10" />
+          <div className="absolute top-[110px] left-1/2 -translate-x-1/2 w-10 h-5 bg-gray-400 rounded-sm z-10" />
 
           {/* ── Flip-card wrapper ── */}
           <button
             type="button"
             aria-label="Flip ID card"
+            aria-pressed={flipped}
             onClick={() => setFlipped((prev) => !prev)}
-            className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer"
+            className="relative w-[280px] max-w-full -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer"
           >
             {/* Inner rotating plane */}
             <div
@@ -72,14 +73,14 @@ export default function About() {
             >
               {/* ── FRONT face — photo badge ── */}
               <div className="absolute inset-0 [backface-visibility:hidden]">
-                <div className="w-full h-full bg-gray-900 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex flex-col">
+                <div className="w-full h-full bg-gray-900 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
                   {/* Top cutout slot */}
                   <div className="mx-auto w-12 h-3 bg-gray-700 rounded-full mb-3 shrink-0" />
                   {/* Photo */}
                   <img
                     src={stackImage}
-                    alt={`${personalInfo.name} — portrait`}
-                    className="w-full flex-1 rounded-xl object-cover object-top"
+                    alt="Vyomdhip P — Java Full Stack Developer, TAP Academy student"
+                    className="w-full flex-1 min-h-0 rounded-xl object-cover object-top"
                   />
                 </div>
               </div>
@@ -117,7 +118,7 @@ export default function About() {
                           <svg className="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
-                          {personalInfo.emails.primary}
+                          <span className="truncate">{personalInfo.emails.primary}</span>
                         </a>
                       )}
 
