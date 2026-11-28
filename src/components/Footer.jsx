@@ -40,7 +40,7 @@ export default function Footer() {
 
       {/* ── Middle — giant brand name ── */}
       <div className="py-20 md:py-24 overflow-hidden">
-        <h2 className="text-center text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4]">
+        <h2 className="text-center text-[15vw] md:text-[14vw] leading-none font-sans font-bold tracking-tighter lowercase whitespace-nowrap select-none text-[#f4f4f4]">
           {personalInfo.brandName.toLowerCase()}
         </h2>
       </div>
